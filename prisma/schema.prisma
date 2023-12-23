@@ -13,7 +13,7 @@ datasource db {
 model Users {
   id String @id @default(uuid())
   name String
-  age Int
+  age Int?
   isActive Boolean
   createdAT DateTime @default(now()) 
 }
