@@ -1,13 +1,12 @@
 import { db } from "./db.js";
 
-// db.users.findFirst({
-db.users.findMany({
-    where: {
+// db.users.findFirst({ where: { name: 'luisita' }}).then(r => console.log(r))
+
+db.users.update({
+    data: {
         age: 20
     },
-    select: {
-        name: true
+    where: {
+        name: 'luisa'
     }
-}).then(r => {
-    console.log(r);
-})
+}).then(r => console.log(r))
