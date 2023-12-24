@@ -16,6 +16,9 @@ model Users {
   age Int?
   isActive Boolean
   createdAT DateTime @default(now()) 
+
+  post Post[]
+  commets Comments[]
 }
 
 model Post {
@@ -23,10 +26,20 @@ model Post {
   title String
   content String
   createdAT DateTime @default(now())
+
+  user Users @relation(fields: [userId], references: [id])
+  userId String
+
+  comments Comments[]
 }
 
 model Comments {
   id String @id @default(uuid())
   content String
   createdAT DateTime @default(now())
+
+  post Post @relation(fields: [postId], references: [id])
+  postId String
+  user Users @relation(fields: [userId], references: [id])
+  userId String
 }
