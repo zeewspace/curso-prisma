@@ -1,11 +1,13 @@
 import { db } from "./db.js";
 
-db.users.create({
-   data: {
-    name: 'Kamerr Ezz',
-    isActive: true,
-    age: 23    
-   } 
+// db.users.findFirst({
+db.users.findMany({
+    where: {
+        age: 20
+    },
+    select: {
+        name: true
+    }
 }).then(r => {
     console.log(r);
 })
